@@ -63,7 +63,7 @@ async function monitorPrice() {
 
   try {
 
-    // ==== ADD YOUR CUSTOM TOKEN PAIRS HERE ==== 
+    // ==== ADD CUSTOM TOKEN PAIRS HERE ==== 
 
     await checkPair({
       inputTokenSymbol: 'ETH',
