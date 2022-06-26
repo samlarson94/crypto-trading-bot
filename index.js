@@ -39,6 +39,7 @@ async function checkPair(args) {
   const uniswapResult = await exchangeContract.methods.getEthToTokenInputPrice(inputAmount).call()
   let kyberResult = await kyberRateContract.methods.getExpectedRate(inputTokenAddress, outputTokenAddress, inputAmount, true).call()
 
+  // Table variables that will be displayed on the console
   console.table([{
     'Input Token': inputTokenSymbol,
     'Output Token': outputTokenSymbol,
@@ -65,14 +66,17 @@ async function monitorPrice() {
 
     // ==== ADD CUSTOM TOKEN PAIRS HERE ==== 
 
+// Checking ETH vs MKR
     await checkPair({
       inputTokenSymbol: 'ETH',
+      //Token Smart Contract Address
       inputTokenAddress: '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
       outputTokenSymbol: 'MKR',
+      //Token Smart Contract Address
       outputTokenAddress: '0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2',
       inputAmount: web3.utils.toWei('1', 'ETHER')
     })
-
+// Checking ETH vs DAI
     await checkPair({
       inputTokenSymbol: 'ETH',
       inputTokenAddress: '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
@@ -80,7 +84,7 @@ async function monitorPrice() {
       outputTokenAddress: '0x6b175474e89094c44da98b954eedeac495271d0f',
       inputAmount: web3.utils.toWei('1', 'ETHER')
     })
-
+// Checking ETH vs KNC
     await checkPair({
       inputTokenSymbol: 'ETH',
       inputTokenAddress: '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
@@ -88,7 +92,7 @@ async function monitorPrice() {
       outputTokenAddress: '0xdd974d5c2e2928dea5f71b9825b8b646686bd200',
       inputAmount: web3.utils.toWei('1', 'ETHER')
     })
-
+// Checking ETH vs LINK
     await checkPair({
       inputTokenSymbol: 'ETH',
       inputTokenAddress: '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
